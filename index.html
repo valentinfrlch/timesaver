@@ -1,45 +1,12 @@
 <head>
-    <! make the page responsive to mobile devices -->
-    <! make the background #121212 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <! import material design library -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta charset="utf-8">
-    <title>TimeSaver</title>
-    <link rel="stylesheet" href="css/style.css">
-    <body>
-    <! add a material design card to the page -->
-    <div class="card">
-        <! add a header to the card -->
-        <div class="card-header">
-            <! add a title to the header -->
-            <h2>TimeSaver</h2>
-        </div>
-        <! add a body to the card -->
-        <div class="card-body">
-            <! add a form to the body -->
-            <form action="index.php" method="post">
-                <! add a text field to the form -->
-                <input type="text" name="task" placeholder="Add a task...">
-                <! add a submit button to the form -->
-                <input type="submit" value="Add">
-            </form>
-        </div>
-        <! add a footer to the card -->
-        <div class="card-footer">
-            <! add a list to the footer -->
-            <ul>
-                <! add a list item to the list -->
-                <?php foreach ($tasks as $task) : ?>
-                    <li>
-                        <! add a checkbox to the list item -->
-                        <input type="checkbox" name="task" value="<?php echo $task; ?>">
-                        <! add a label to the checkbox -->
-                        <label for="task"><?php echo $task; ?></label>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
-    </body>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<button class="mdc-button foo-button">
+  <div class="mdc-button__ripple"></div>
+  <span class="mdc-button__label">Button</span>
+</button>
+<script>
+  const buttonRipple = new mdc.ripple.MDCRipple(document.querySelector('.foo-button'));
+</script>
