@@ -2,50 +2,68 @@
   "walking": {"description": "Go for a quick walk",
               "improves": "fitness, mood",
               "async": "music",
-              "boost": "5"},
+              "boost": "5",
+              "place": "outdoor"},
+              
               
   "gym": {"description": "Hit the gym",
               "improves": "fitness, mood",
               "async": "music",
-              "boost": "6"},
+              "boost": "6",
+              "place": "indoor"
+  },
               
   "podcast": {"description": "Listen to your favorite podcast",
               "improves": "mood",
               "async": "drawing",
-              "boost": "3"},
+              "boost": "3",
+              "place": "indoor"},
               
  "drawing": {"description": "Open Procreate",
               "improves": "mood, drawing skills",
               "async": "music, podcast",
-              "boost": "6"},
+              "boost": "6",
+              "place": "indoor"},
               
   "movie": {"description": "Watch a movie or tv show",
               "improves": "mood",
               "async": "music",
-              "boost": "2"},
+              "boost": "2",
+              "place": "indoor"},
               
   "code": {"description": "Fire up github and resume a project. (Might not help with mood)",
               "improves": "coding skills",
               "async": "music",
-              "boost": "1"},
+              "boost": "1",
+              "place": "indoor"},
+              
   "organize": {"description": "Get your life together",
               "improves": "organisation, mood",
               "async": "music, podcast",
-              "boost": "2"},
+              "boost": "2",
+              "place": "indoor"},
+              
   "game": {"description": "Play a game",
               "improves": "mood",
               "async": "music, podcast, movie, video",
-              "boost": "3"},
+              "boost": "3",
+              "place": "indoor"},
+              
   "cook": {"description": "Find a recipe and get cooking",
               "improves": "mood, cooking skills",
               "async": "music",
-              "boost": "7"},
+              "boost": "7",
+              "place": "indoor"},
+              
   "photos": {"description": "Look through some photos. (Maybe print one for decoration?)",
               "improves": "mood",
               "async": "music",
-              "boost": "6"},
+              "boost": "6",
+              "place": "indoor"},
+              
   "meditate": {"description": "Lean back and relax your inner peace",
               "improves": "mood, mental stability, focus",
               "async": "",
-              "boost": "8"}
+              "boost": "8",
+              "place": "indoor, outdoor"}
 }
