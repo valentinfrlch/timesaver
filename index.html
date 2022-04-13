@@ -3,10 +3,18 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
+<! add a button the the middle of the page -->
 <button class="mdc-button foo-button">
   <div class="mdc-button__ripple"></div>
-  <span class="mdc-button__label">Button</span>
+  <span class="mdc-button__label">unbore me!</span>
 </button>
+
+<! when the button is clicked, show a text "you're awesome!" -->
 <script>
+  const button = document.querySelector('.foo-button');
+  button.addEventListener('click', () => {
+    alert('you\'re awesome!');
+  });
   const buttonRipple = new mdc.ripple.MDCRipple(document.querySelector('.foo-button'));
 </script>
