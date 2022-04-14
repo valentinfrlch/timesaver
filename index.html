@@ -20,19 +20,22 @@
   <! add a popup -->
     <div class="popup" onclick="myFunction()">Click me!
       <amp-story standalone title="Activies" publisher="TimeSaver" publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
-        poster-portrait-src="assets/cover.jpg">
+        poster-portrait-src="assets/cover.jpg" supports-landscape>
+
+        <! pull data from "assets/activities.json" and fill story -->
         <amp-story-page id="cover">
           <amp-story-grid-layer template="fill">
             <amp-img src="assets/cover.jpg" width="720" height="1280" layout="responsive" alt="">
             </amp-img>
             <amp-story-grid-layer template="vertical">
-              <! make the text white -->
                 <div style="color:white;">
                   <h1>Rock Climbing</h1>
                   <p>by TimeSaver</p>
                 </div>
             </amp-story-grid-layer>
         </amp-story-page>
+
+
       </amp-story>
     </div>
 </body>
