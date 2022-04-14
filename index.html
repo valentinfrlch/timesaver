@@ -23,19 +23,93 @@
         poster-portrait-src="assets/cover.jpg" supports-landscape>
 
         <! pull data from "assets/activities.json" and fill story -->
-        <amp-story-page id="cover">
-          <amp-story-grid-layer template="fill">
-            <amp-img src="assets/cover.jpg" width="720" height="1280" layout="responsive" alt="">
-            </amp-img>
-            <amp-story-grid-layer template="vertical">
+          <amp-story-page id="cover">
+            <amp-story-grid-layer template="fill">
+              <amp-img src="assets/cover.jpg" width="720" height="1280" layout="responsive" alt="">
+              </amp-img>
+              <amp-story-grid-layer template="vertical">
                 <div style="color:white;">
                   <h1>Rock Climbing</h1>
                   <p>by TimeSaver</p>
                 </div>
-            </amp-story-grid-layer>
-        </amp-story-page>
+              </amp-story-grid-layer>
+              </amp-story-page>
 
+          <amp-story-page id="cover">
+            <amp-story-grid-layer template="fill">
+              <amp-img src="assets/cover.jpg" width="720" height="1280" layout="responsive" alt="">
+              </amp-img>
+              <amp-story-grid-layer template="vertical">
+                <div style="color:white;">
+                  <h1>Rowing</h1>
+                </div>
+              </amp-story-grid-layer>
+          </amp-story-page>
+          
+          <! add a script to add pages to the story -->
+            <script type="text/javascript">
+              // load the activities.json file in assets folder
+              // avoid CORS warning
+              var request = new Request('assets/activities.json', {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'default'
+              });
+              fetch(request)
+                .then(response => response.json())
+                .then(data => {
+                  console.log(data)
+                  // loop through the data and add pages to the story
+                  for (let i = 0; i < data.length; i++) {
+                    // create a new page
+                    let page = document.createElement("amp-story-page");
+                    // set the page id
+                    page.setAttribute("id", data[i].id);
+                    // add the page to the story
+                    document.querySelector("amp-story").appendChild(page);
+                    // add the page template
+                    page.appendChild(document.createElement("amp-story-grid-layer"));
+                    // add the page content
+                    page.querySelector("amp-story-grid-layer").appendChild(document.createElement("amp-img"));
+                    page.querySelector("amp-story-grid-layer").appendChild(document.createElement("amp-story-grid-layer"));
+                    // set the page content
+                    page.querySelector("amp-img").setAttribute("src", data[i].image);
+                    page.querySelector("amp-img").setAttribute("width", "720");
+                    page.querySelector("amp-img").setAttribute("height", "1280");
+                    page.querySelector("amp-img").setAttribute("layout", "responsive");
+                    page.querySelector("amp-img").setAttribute("alt", data[i].title);
+                    page.querySelector("amp-story-grid-layer").setAttribute("template", "vertical");
+                    page.querySelector("amp-story-grid-layer").appendChild(document.createElement("div"));
+                    page.querySelector("amp-story-grid-layer").querySelector("div").setAttribute("style", "color:white;");
+                    page.querySelector("amp-story-grid-layer").querySelector("div").appendChild(document.createElement("h1"));
+                    page.querySelector("amp-story-grid-layer").querySelector("div").querySelector("h1").innerHTML = data[i].title;
+                    page.querySelector("amp-story-grid-layer").querySelector("div").appendChild(document.createElement("p"));
 
+                    var pageIds = pages.map(function (page) {
+                      return page.id;
+                    });
+                    var pageTemplates = pages.map(function (page) {
+                      return page.template;
+                    });
+                    var pageBackgrounds = pages.map(function (page) {
+                      return page.background;
+                    });
+                    var pageComponents = pages.map(function (page) {
+                      return page.components;
+                    });
+                    var pageComponentTypes = pages.map(function (page) {
+                      return page.components.map(function (component) {
+                        return component.type;
+                      });
+                    });
+                    var pageComponentSrcs = pages.map(function (page) {
+                      return page.components.map(function (component) {
+                        return component.src;
+                      });
+                    });
+                  }
+                });
+                    </script>
       </amp-story>
     </div>
 </body>
