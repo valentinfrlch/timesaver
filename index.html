@@ -10,14 +10,31 @@
   <! make the page responsive to mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeSaver</title>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <! make the background white -->
+      <meta name="theme-color" content="#ffffff">
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
 
 <body>
   <h1>Header</h1>
-  <amp-story standalone title="Activies" publisher="TimeSaver" publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
-    poster-portrait-src="assets/cover.jpg">
-  </amp-story>
+  <! add a popup -->
+    <div class="popup" onclick="myFunction()">Click me!
+      <amp-story standalone title="Activies" publisher="TimeSaver" publisher-logo-src="assets/AMP-Brand-White-Icon.svg"
+        poster-portrait-src="assets/cover.jpg">
+        <amp-story-page id="cover">
+          <amp-story-grid-layer template="fill">
+            <amp-img src="assets/cover.jpg" width="720" height="1280" layout="responsive" alt="">
+            </amp-img>
+            <amp-story-grid-layer template="vertical">
+              <! make the text white -->
+                <div style="color:white;">
+                  <h1>Rock Climbing</h1>
+                  <p>by TimeSaver</p>
+                </div>
+            </amp-story-grid-layer>
+        </amp-story-page>
+      </amp-story>
+    </div>
 </body>
 
 </html>
