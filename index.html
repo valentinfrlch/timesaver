@@ -5,22 +5,36 @@
   <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
 </head>
 
-
+<! add a button and an amp story to the page -->
 <body>
-    ! add a button the the middle of the page -->
-    <button class="mdc-button foo-button">
-    <div class="mdc-button__ripple"></div>
-    <span class="mdc-button__label">unbore me!</span>
-    </button>
-    <amp-story standalone>
+  <button class="mdc-button mdc-button--raised" id="button">
+    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+    <span class="mdc-button__label">Add a new story</span>
+  </button>
+  <amp-story standalone id="story" layout="responsive" width="1024" height="768">
+    <amp-story-page id="page1">
+      <amp-story-grid-layer template="vertical" class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+          <h1>Page 1</h1>
+        </div>
+      </amp-story-grid-layer>
+    </amp-story-page>
   </amp-story>
-</body>
-
-<! when the button is clicked, show a text "you're awesome!" -->
-<script>
-  const button = document.querySelector('.foo-<sbutton');
-  button.addEventListener('click', () => {
-    alert('you\'re awesome!');
-  });
-  const buttonRipple = new mdc.ripple.MDCRipple(document.querySelector('.foo-button'));
-</script>
+  <script>
+    const button = document.getElementById('button');
+    const story = document.getElementById('story');
+    const page1 = document.getElementById('page1');
+    const page2 = document.createElement('amp-story-page');
+    page2.setAttribute('id', 'page2');
+    page2.setAttribute('template', 'vertical');
+    page2.innerHTML = `
+      <amp-story-grid-layer template="vertical" class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+          <h1>Page 2</h1>
+        </div>
+      </amp-story-grid-layer>
+    `;
+    button.addEventListener('click', () => {
+      story.appendChild(page2);
+    });
+  </script>
